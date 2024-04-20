@@ -1,11 +1,14 @@
 import React from 'react';
 import { Box, Container, Grid, Typography, IconButton } from '@mui/material';
-import { Link } from 'react-router-dom'; // Import Link component
+import { Link } from 'react-router-dom';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import logo from '../../assets/luman_logo.png';
+import PhoneIcon from '@mui/icons-material/Phone';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const Footer = () => {
   const navItems = [
@@ -13,44 +16,72 @@ const Footer = () => {
     { title: 'Products', path: '/products' },
     { title: 'Contact', path: '/contact' },
   ];
+
   return (
-    <Box sx={{ bgcolor: 'white', color: 'black', p: 3 }}>
+    <Box>
+      <Box sx={{ bgcolor: 'white', color: 'black', p: 3 }}>
       <Container maxWidth="lg">
         <Grid container spacing={5}>
-          <Grid item xs={12} sm={4}>
-            <img src={logo} alt="Company Logo" width="180" height="50"/>
+          <Grid item xs={12} sm={3}>
+            <img src={logo} alt="Company Logo" width="120" height="50" />
+            <Typography variant="body1" style={{ fontFamily: 'Outfit, sans-serif', fontSize: '14px', marginTop: '10px', display:"flex",textAlign: 'justify' }}>
+             Believe in win-win <br/> sustainable business relationship
+            </Typography>
+            <div className='flex justify-start'>
+              <IconButton color="inherit"><FacebookIcon /></IconButton>
+              <IconButton color="inherit"><TwitterIcon /></IconButton>
+              <IconButton color="inherit"><LinkedInIcon /></IconButton>
+              <IconButton color="inherit"><InstagramIcon /></IconButton>
+            </div>
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <Typography variant="h6" style={{fontFamily: 'Outfit, sans-serif', fontSize: '18px'}}>Company</Typography>
-            {/* Use Link instead of Button */}
+          <Grid item xs={12} sm={3} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center',padding:'10px 0px 0px 80px'}}>
+            <Typography variant="h6" style={{ fontFamily: 'Lato, sans-serif', fontSize: '18px' }}>Quick Links</Typography>
+            <span style={{ fontFamily: 'Roboto, sans-serif', fontSize: '14px', color: '#000000' }}>________</span>
             {navItems.map(item => (
-              <Link key={item.title} to={item.path} style={{ display: 'block', marginBottom: '5px', color: 'inherit', textDecoration: 'none', fontFamily: 'inter, sans-serif', fontSize: '14px' }}>
+              <Link key={item.title} to={item.path} style={{ display: 'block', marginBottom: '5px', color: 'inherit', textDecoration: 'none', fontFamily: 'Roboto, sans-serif', fontSize: '14px', marginTop: '15px' }}>
                 {item.title}
               </Link>
             ))}
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <Typography variant="h6" style={{fontFamily: 'Outfit, sans-serif', fontSize: '18px'}}>Follow us</Typography>
-            <IconButton color="inherit"><FacebookIcon /></IconButton>
-            <IconButton color="inherit"><TwitterIcon /></IconButton>
-            <IconButton color="inherit"><LinkedInIcon /></IconButton>
-            <IconButton color="inherit"><InstagramIcon /></IconButton>
+          <Grid item xs={12} sm={3} className='get-touch'>  
+            <Typography variant="h6" style={{ fontFamily: 'Roboto, sans-serif', fontSize: '18px' }}>Get In Touch</Typography>
+            <span style={{ fontFamily: 'Roboto, sans-serif', fontSize: '14px', color: '#000000' }}>________</span> <br />
+              <Typography variant="body2" style={{ fontFamily: 'Roboto, sans-serif', fontSize: '14px', color: '#000000', marginTop: "20px" }}>
+                <PhoneIcon style={{ marginRight: '5px', textAlign: 'center' }} /> +8801916231759
+              </Typography>
+              <Typography variant="body2" style={{ fontFamily: 'Roboto, sans-serif', fontSize: '14px', color: '#000000', marginTop: "20px" }}>
+                <PhoneIcon style={{ marginRight: '5px', textAlign: 'center' }} /> +8801925425497
+              </Typography>
+              <Typography variant="body2" style={{ fontFamily: 'Roboto, sans-serif', fontSize: '14px', color: '#000000', marginTop: "10px" }}>
+                <MailOutlineIcon style={{marginRight: '5px', textAlign: 'center' }} /> mktg@lumen-bd.com
+              </Typography>
+  
           </Grid>
+     
+          <Grid item xs={12} sm={3} className='location'>
+            <Typography variant="h6" style={{ fontFamily: 'Roboto, sans-serif', fontSize: '18px' }}>Location</Typography>
+            <span style={{ fontFamily: 'Roboto, sans-serif', fontSize: '14px', color: '#000000' }}>________</span> <br />
+            <div>
+              <Typography variant="body2" style={{ fontFamily: 'Roboto, sans-serif', fontSize: '14px', color: '#000000', marginTop: "8px" }}>
+                <LocationOnIcon style={{ marginRight: '5px', textAlign: 'center', marginBottom:'3px', marginTop:'2px'}} /> Address: <br/>  <b>Lumen Corporation</b>  &nbsp;<br/> House-07, Road-06, Sector-12, Uttara, Dhaka-1230, Bangladesh.
+              </Typography>
+            </div>
+          </Grid>
+
         </Grid>
-        <Box sx={{ borderTop: 1, borderColor: 'grey.500', mt: 3, pt: 3 }}>
-          <Grid container justifyContent="space-between">
-            <Grid item>
-              <Typography variant="body2">2024 All rights reserved - Luman Corporation</Typography>
-            </Grid>
-            <Grid item>
-              <Link href="#" color="inherit" underline="hover">Terms & Conditions</Link> | 
-              <Link href="#" color="inherit" underline="hover">Privacy</Link> | 
-              <Link href="#" color="inherit" underline="hover">Security</Link> | 
-              <Link href="#" color="inherit" underline="hover">Cookie Declaration</Link>
-            </Grid>
-          </Grid>
-        </Box>
       </Container>
+    </Box>
+    <div className="bg-green-700 bg-opacity-90 p-5">
+  <div className="container mx-auto flex flex-col md:flex-row items-center md:justify-between">
+    <div className="mb-4 md:mb-0 md:mr-auto">
+      <p className="text-white text-sm">&copy; 2024 All rights reserved - Luman Corporation</p>
+    </div>
+    <div className="md:ml-auto">
+      <a href="#" className="text-white text-sm hover:text-gray-300">Developed with ❤️ Goinnovior Limited</a>
+    </div>
+  </div>
+</div>
+
     </Box>
   );
 };
